@@ -141,21 +141,6 @@
     }
 
     /* ════════════════════════════════════════
-       PROMO STRIP
-    ════════════════════════════════════════ */
-    #promo {
-      background: var(--gold);
-      color: #000;
-      text-align: center;
-      padding: 9px 24px;
-      font-size: 0.83rem;
-      font-weight: 600;
-      position: relative;
-      z-index: 200;
-    }
-    #promo a { text-decoration: underline; color: #000; margin-left: 8px; }
-
-    /* ════════════════════════════════════════
        HEADER
     ════════════════════════════════════════ */
     #site-header {
@@ -468,18 +453,6 @@
       position: absolute; top: 0; left: 0; right: 0;
       height: 3px; background: var(--gold);
     }
-    .price-badge {
-      display: inline-block;
-      background: var(--gold);
-      color: #000;
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 4px 12px;
-      border-radius: 4px;
-      margin-bottom: 22px;
-    }
     .price-label {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 1.4rem;
@@ -762,12 +735,6 @@
 </head>
 <body>
 
-  <!-- Promo Strip -->
-  <div id="promo">
-    🌸 Spring Sale — 15 Yard Dumpster from <s>$300</s> <strong>$250</strong> &nbsp;·&nbsp;
-    <a href="tel:+18017538256">Book now →</a>
-  </div>
-
   <!-- Header -->
   <header id="site-header">
     <div class="container">
@@ -1009,11 +976,9 @@
 
         <div class="pricing-row">
           <div class="price-card">
-            <div class="price-badge">🌸 Spring Sale</div>
             <div class="price-label">15 Yard Dumpster</div>
             <div class="price-amount">
               <span class="price-now">$250</span>
-              <span class="price-was">$300</span>
             </div>
             <p style="font-size:0.83rem;color:var(--muted);margin-bottom:22px;">Fits nearly every Utah project</p>
             <ul class="price-features">
@@ -1379,9 +1344,8 @@
   <script>
     // Sticky header
     var hdr = document.getElementById('site-header');
-    var promoH = document.getElementById('promo').offsetHeight;
     window.addEventListener('scroll', function() {
-      hdr.classList.toggle('stuck', window.scrollY > promoH);
+      hdr.classList.toggle('stuck', window.scrollY > 0);
     }, { passive: true });
 
     // Mobile nav
