@@ -575,14 +575,44 @@
     /* ════════════════════════════════════════
        REVIEWS
     ════════════════════════════════════════ */
-    #reviews { padding: 96px 0; background: var(--dark-2); text-align: center; }
-    .stars { display: flex; justify-content: center; gap: 3px; margin-bottom: 12px; }
-    .stars span { color: var(--gold); font-size: 1.55rem; }
-    #reviews .reviews-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 36px; }
-    #reviews .reviews-statement {
-      font-size: 1.1rem; color: var(--muted);
-      max-width: 580px; margin: 0 auto 36px;
+    #reviews { padding: 96px 0; background: var(--dark-2); }
+    .stars { display: flex; gap: 3px; margin-bottom: 4px; }
+    .stars span { color: var(--gold); font-size: 1.2rem; }
+    .review-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 36px 0 32px;
+    }
+    .review-card {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 28px 24px;
+      text-align: left;
+    }
+    .review-card blockquote {
+      font-size: 0.975rem;
+      color: var(--text);
       line-height: 1.75;
+      margin: 12px 0 16px;
+      font-style: normal;
+    }
+    .review-card blockquote::before { content: '\201C'; }
+    .review-card blockquote::after { content: '\201D'; }
+    .reviewer-name {
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--text);
+    }
+    .reviewer-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .reviews-footer { text-align: center; }
+    @media (max-width: 640px) {
+      .review-cards { grid-template-columns: 1fr; }
     }
 
     /* ════════════════════════════════════════
@@ -865,12 +895,12 @@
         <div class="hero-body">
           <div class="hero-pill" aria-label="24/7 service available">24/7 Service Available</div>
           <h1 id="hero-heading" class="display hero-headline">
-            Fast Drops.<br>
-            <span class="hi">Clean</span> Pickups.
+            Call Chris.<br>
+            <span class="hi">Get a Bin.</span>
           </h1>
-          <p class="hero-sub">Utah's toughest dumpster rental company</p>
+          <p class="hero-sub">Flat-rate dumpster rentals — Utah &amp; Salt Lake Counties</p>
           <p class="hero-desc">
-            Serving Utah &amp; Salt Lake Counties. Same-day delivery, driveway-safe drops, and flat-rate pricing with landfill fees built in.
+            Same-day delivery available. Landfill fees included in every quote. No fuel surcharges, no six-hour windows, no runaround.
           </p>
           <div class="hero-ctas">
             <a href="#" onclick="openBooking(event)" class="btn btn-gold">
@@ -963,9 +993,9 @@
     <section id="services" aria-labelledby="services-heading">
       <div class="container">
         <div class="section-hd center">
-          <span class="eyebrow">What We Do</span>
-          <h2 id="services-heading" class="display section-title">Our Services</h2>
-          <p class="section-body center">From small home projects to major construction sites, our 15-yard dumpsters are the right size for nearly every Utah job.</p>
+          <span class="eyebrow">What We Handle</span>
+          <h2 id="services-heading" class="display section-title">The Work</h2>
+          <p class="section-body center">One size: a 15-yarder that fits the vast majority of Utah jobs. Cleanouts, remodels, roofing, landscaping — if it fills a pickup truck, it fits our bin.</p>
         </div>
 
         <div class="services-grid">
@@ -1163,7 +1193,7 @@
         <div class="about-grid">
           <div>
             <span class="eyebrow">From the Founder</span>
-            <h2 id="about-heading" class="display" style="font-size:clamp(2.4rem,5vw,3.4rem);color:var(--text);margin:8px 0 28px;">Why Outlaw Exists</h2>
+            <h2 id="about-heading" class="display" style="font-size:clamp(2.4rem,5vw,3.4rem);color:var(--text);margin:8px 0 28px;">How This Started</h2>
             <div class="about-story">
               <p>I'm Chris, born and raised in Utah. I answer the phone when you call. Before starting this business I did three home remodels, and the first two I tried to haul myself. Rented a trailer, drove to the Lindon transfer station, and both times completely underestimated how much a bathroom gut actually weighs. Some lessons you pay twice.</p>
               <p>The third time I rented from a national company. They showed up six hours late, set the bin down on bare concrete, and added a fuel surcharge that wasn't anywhere in the original quote. That's when I decided to just run my own operation.</p>
@@ -1209,20 +1239,38 @@
     <!-- ── REVIEWS ── -->
     <section id="reviews" aria-labelledby="reviews-heading">
       <div class="container">
-        <div class="section-hd center">
-          <span class="eyebrow">Reviews</span>
-          <h2 id="reviews-heading" class="display section-title" style="color:var(--text);">What Your Neighbors Say</h2>
+        <div class="section-hd">
+          <span class="eyebrow">Customer Reviews</span>
+          <h2 id="reviews-heading" class="display section-title" style="color:var(--text);">What People Say</h2>
         </div>
-        <div class="stars" aria-label="5 out of 5 stars">
-          <span aria-hidden="true">★</span><span aria-hidden="true">★</span>
-          <span aria-hidden="true">★</span><span aria-hidden="true">★</span>
-          <span aria-hidden="true">★</span>
+
+        <div class="review-cards">
+          <div class="review-card">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+              <span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+              <span aria-hidden="true">★</span>
+            </div>
+            <blockquote>Chris was easy to communicate with and arrived on time for both drop off and pickup. Rates are competitive and booking was straightforward. Will use again when needed.</blockquote>
+            <div class="reviewer-name">Zachary F.</div>
+            <div class="reviewer-meta">Google Review · Utah County</div>
+          </div>
+
+          <div class="review-card">
+            <div class="stars" aria-label="5 out of 5 stars">
+              <span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+              <span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+              <span aria-hidden="true">★</span>
+            </div>
+            <blockquote>Needed a quick dumpster last minute and Chris was extremely helpful in making it work for my schedule. Dropped off where I wanted it, picked up right when I was done. Very easy process from start to finish. For sure will use again.</blockquote>
+            <div class="reviewer-name">Tanner S.</div>
+            <div class="reviewer-meta">Google Review · Utah</div>
+          </div>
         </div>
-        <p class="reviews-sub">5.0 / 5.0 on Google · Verified reviews from real Utah customers</p>
-        <p class="reviews-statement">We don't post copy-pasted testimonials here. Read them yourself, good or bad, directly on Google.</p>
-        <a href="https://www.google.com/search?q=Outlaw+Dumpster+Rentals+Utah" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-          Read Reviews on Google →
-        </a>
+
+        <div class="reviews-footer">
+          <a href="https://www.google.com/search?q=Outlaw+Dumpster+Rentals+Utah+reviews" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">See all reviews on Google →</a>
+        </div>
       </div>
     </section>
 
